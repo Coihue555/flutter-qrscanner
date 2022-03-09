@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:meta/meta.dart';
 
 class ScanModel {
@@ -12,7 +11,7 @@ class ScanModel {
         @required this.tipo,
         @required this.valor,
     }) {
-      if(tipo!.contains('http') ){
+      if(this.valor!.contains('http') ){
         this.tipo = 'http';
       } else {
         this.tipo = 'geo';

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_qrscanner/pages/direcciones_pages.dart';
 import 'package:flutter_qrscanner/pages/mapas_page.dart';
+import 'package:flutter_qrscanner/providers/scan_list_provider.dart';
 
-import 'package:flutter_qrscanner/providers/db_provider.dart';
 import 'package:flutter_qrscanner/providers/ui_provider.dart';
 
 import 'package:flutter_qrscanner/widgets/custom_navigatorbar.dart';
@@ -22,7 +22,9 @@ class HomePage extends StatelessWidget {
         title: const Text('Historial'),
         actions: [
           IconButton(
-            onPressed: (){},
+            onPressed: (){
+              Provider.of<ScanListProvider>(context, listen: false).borrarScans();
+            },
             icon: const Icon(Icons.delete_forever)
           )
         ],
@@ -44,12 +46,17 @@ class _HomePageBody extends StatelessWidget {
 
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    DBProvider.db.database;
+    //final tempScan = new ScanModel(valor: 'http://google.com');
+    //DBProvider.db.getTodosScans().then((s)=>s!.forEach((element) {print(element.valor);}));
+
+    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
 
     switch(currentIndex){
       case 0:
+        scanListProvider.cargarScansByTipo('geo');
         return MapasPage();
       case 1:
+        scanListProvider.cargarScansByTipo('http');
         return DireccionesPage();
 
       default:

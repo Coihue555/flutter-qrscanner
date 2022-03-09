@@ -7,7 +7,7 @@ class MapaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Localizacion'),
+        title: const Text('Localizacion'),
       ),
       body: const Center(
          child: Text('MapaPage'),

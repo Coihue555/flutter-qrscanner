@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_qrscanner/providers/scan_list_provider.dart';
+import 'package:flutter_qrscanner/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 class ScanTiles extends StatelessWidget {
@@ -28,7 +29,7 @@ class ScanTiles extends StatelessWidget {
         title: Text( scans[i].valor.toString() ),
         subtitle: Text(scans[i].id.toString()),
         trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey,),
-        onTap: ()=> print('se abrio algo'),
+        onTap: ()=> launchURL(context, scans[i]),
       )
       );
   }

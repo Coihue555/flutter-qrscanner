@@ -4,14 +4,14 @@ class ScanModel {
     
     int? id;
     String? tipo;
-    String? valor;
+    String valor;
 
     ScanModel({
         @required this.id,
         @required this.tipo,
-        @required this.valor,
+        required this.valor,
     }) {
-      if(this.valor!.contains('http') ){
+      if(this.valor.contains('http') ){
         this.tipo = 'http';
       } else {
         this.tipo = 'geo';

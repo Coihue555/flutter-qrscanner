@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+.maps.key
 
 # IntelliJ related
 *.iml

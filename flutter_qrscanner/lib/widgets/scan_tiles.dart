@@ -14,7 +14,7 @@ class ScanTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scanListProvider = Provider.of<ScanListProvider>(context);
-    final scans = scanListProvider.scans;
+    final scans = scanListProvider.scans; 
 
     return ListView.builder(
       itemCount: scans.length,
